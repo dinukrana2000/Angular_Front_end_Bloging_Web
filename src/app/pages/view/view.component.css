@@ -1,0 +1,55 @@
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    animation: fade 6s infinite;
+  }
+
+
+.example-header-image {
+    background-image: url('https://www.gstatic.com/webp/gallery/1.jpg');
+    background-size: cover;
+  }
+  .card {
+    margin-left: 30%;
+    margin-top: 5%;
+    margin-right: 30%;
+    margin-bottom: 1%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+  border: 3px solid #c50c0c;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+  }
+
+
+ #like{
+  background-color: blue;
+  color: white;
+  margin-right: 4%;
+ }
+
+ #share{
+  background-color: green;
+  color: white;
+ }
+
+ #p1{
+  font-weight: bold;
+  font-size: larger;
+ }
+
+ .button-container{
+
+  display: flex;
+ }
+
+ mat-card-subtitle{
+  color: #c50c0c;
+ }
+  

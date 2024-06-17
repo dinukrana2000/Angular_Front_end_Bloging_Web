@@ -1,0 +1,28 @@
+
+
+<app-menubar>
+  <div  class="bg" style="background-image: linear-gradient(to right, #060996, #ad0808);"></div>
+  <mat-card *ngFor="let post of blogPosts" class="card">
+  
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title >{{ post.title }}</mat-card-title>
+      <mat-card-subtitle >{{ post.author }}</mat-card-subtitle>
+     
+    </mat-card-header>  
+    <mat-card-content>
+      
+      <p id="p1">Posted by: {{ post.username }}</p>
+      <p>{{ post.content }}</p>
+      <p>{{post.date}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="button-container">
+        <button mat-button id="like">LIKE</button>
+        <button mat-button id="share">SHARE</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</app-menubar>
+
+  

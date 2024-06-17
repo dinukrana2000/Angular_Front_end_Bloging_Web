@@ -1,0 +1,37 @@
+
+
+<mat-drawer-container autosize>
+  
+  <mat-drawer #drawer opened="true" mode="side" position="end" class="drawer">
+    
+  <mat-nav-list >
+      <mat-list-item>
+          
+      </mat-list-item>
+      <mat-list-item>
+      </mat-list-item>
+      <mat-list-item>
+          <button routerLink="/view" mat-button><mat-icon>dashboard</mat-icon> Dashboard</button>
+      </mat-list-item>
+      <mat-list-item>
+          <button routerLink="/new" mat-button><mat-icon>Create</mat-icon> New</button>
+      </mat-list-item>
+      <mat-list-item>
+        <button routerLink="/viewmy" mat-button><mat-icon>ViewMy</mat-icon> My Post</button>
+    </mat-list-item>
+      
+     
+      
+      <mat-list-item>
+          <button (click)="logout()" mat-button><mat-icon>logout</mat-icon> Logout</button>
+      </mat-list-item>
+     
+  </mat-nav-list>
+  </mat-drawer> 
+  <mat-drawer-content  class="content">
+      <div style="color: black;">
+        <ng-content></ng-content>
+          
+          </div>
+  </mat-drawer-content>
+</mat-drawer-container>

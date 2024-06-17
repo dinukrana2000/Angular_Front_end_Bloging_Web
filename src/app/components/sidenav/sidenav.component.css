@@ -1,0 +1,24 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.content{
+  background-color: rgb(255, 255, 255);
+  height: 900px;
+ 
+}
+
+.drawer{
+ 
+  background-color: rgb(38, 8, 8);
+  width: 160px;
+  height: 100%;
+  position: fixed;
+ 
+  
+}
+
+mat-list-item{
+    margin-bottom:25%;  
+}
+
