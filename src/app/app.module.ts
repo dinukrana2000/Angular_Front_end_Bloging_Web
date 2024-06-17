@@ -42,7 +42,7 @@ import { DialogboxComponent } from './components/dialogbox/dialogbox.component';
 import { DialogboxdeleteComponent } from './components/dialogboxdelete/dialogboxdelete.component'
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ToastrModule } from 'ngx-toastr';
-import { NgxSpinnerModule } from "ngx-spinner";
+
 
 
 
