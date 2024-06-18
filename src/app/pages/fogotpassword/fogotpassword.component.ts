@@ -19,7 +19,7 @@ export class FogotpasswordComponent implements OnInit{
 
   ngOnInit(){
     this.fogotpassword = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email,Validators.maxLength(100)]],
     
     });
   }

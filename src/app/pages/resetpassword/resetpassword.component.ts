@@ -20,8 +20,8 @@ constructor(private fb: FormBuilder,private router:Router,private authService:Au
 ngOnInit() {
   this.resetForm = this.fb.group({
     email:[ localStorage.getItem('resetPasswordEmail'), [Validators.required]],
-    pwd: ['', [Validators.required, Validators.minLength(6),Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$')]],
-    confirm_pwd: ['', [Validators.required, Validators.minLength(6),Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$')]],
+    pwd: ['', [Validators.required, Validators.minLength(6),Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$'),Validators.maxLength(15)]],
+    confirm_pwd: ['', [Validators.required, Validators.minLength(6),Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$'),Validators.maxLength(15)]],
   });
 }
 

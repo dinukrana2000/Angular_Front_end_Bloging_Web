@@ -91,7 +91,7 @@
           Password must be at most 15 characters
         </mat-error>
         <mat-error *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['pattern']">
-          Password must contain at least one letter and one number no symbols
+          must be at least one number one Upper and lower case letter and no symbol
         </mat-error>
         
       </mat-form-field>
@@ -112,7 +112,7 @@
           Confirm Password must be at most 15 characters
         </mat-error>
         <mat-error *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['pattern']">
-          Password must contain at least one letter and one number no symbols
+          must be at least one number one Upper and lower case letter and no symbol
         </mat-error>
         <mat-error *ngIf="signupForm.errors?.['mismatch'] && (signupForm.get('confirmPassword')?.touched||signupForm.get('password')?.touched)">
           Passwords do not match.
