@@ -38,6 +38,9 @@
         <mat-error *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['email']">
           Email is invalid
         </mat-error>
+        <mat-error *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['maxlength']">
+          Email is maximum 100 characters
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
@@ -48,6 +51,9 @@
         </mat-error>
         <mat-error *ngIf="signupForm.get('address')?.touched && signupForm.get('address')?.errors?.['minlength']">
           Address must be at least 5 characters
+        </mat-error>
+        <mat-error *ngIf="signupForm.get('address')?.touched && signupForm.get('address')?.errors?.['maxlength']">
+          Address no more thatn 50 characters
         </mat-error>
       </mat-form-field>
 
@@ -64,6 +70,9 @@
         <mat-error *ngIf="signupForm.get('number')?.touched && signupForm.get('number')?.errors?.['maxlength']">
           Contact must be at most 10 characters
         </mat-error>
+        <mat-error *ngIf="signupForm.get('number')?.touched && signupForm.get('number')?.errors?.['pattern']">
+          Contact must only numbers
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
@@ -78,9 +87,13 @@
         <mat-error *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['minlength']">
           Password must be at least 6 characters
         </mat-error>
-        <mat-error *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['pattern']">
-          Password must contain at least one letter and one number
+        <mat-error *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['maxlength']">
+          Password must be at most 15 characters
         </mat-error>
+        <mat-error *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['pattern']">
+          Password must contain at least one letter and one number no symbols
+        </mat-error>
+        
       </mat-form-field>
 
       <mat-form-field appearance="outline">
@@ -94,6 +107,12 @@
         </mat-error>
         <mat-error *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['minlength']">
           Confirm Password must be at least 6 characters
+        </mat-error>
+        <mat-error *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['maxlength']">
+          Confirm Password must be at most 15 characters
+        </mat-error>
+        <mat-error *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['pattern']">
+          Password must contain at least one letter and one number no symbols
         </mat-error>
         <mat-error *ngIf="signupForm.errors?.['mismatch'] && (signupForm.get('confirmPassword')?.touched||signupForm.get('password')?.touched)">
           Passwords do not match.

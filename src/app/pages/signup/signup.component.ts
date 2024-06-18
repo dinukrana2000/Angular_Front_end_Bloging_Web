@@ -34,11 +34,11 @@ export class SignupComponent implements OnInit{
     this.signupForm = this.fb.group(
       {
         username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-        email: ['', [Validators.required, Validators.email]],
-        address: ['', [Validators.required, Validators.minLength(5)]],
+        email: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],       
+        address: ['', [Validators.required, Validators.minLength(5),Validators.maxLength(50)]],
         number: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('^[0-9]{10}$')]],
-        password: ['', [Validators.required, Validators.minLength(6), Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$')]],
-        confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
+        password: ['', [Validators.required, Validators.minLength(6), Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$'),Validators.maxLength(15)]],
+        confirmPassword: ['', [Validators.required, Validators.minLength(6),Validators.maxLength(15),Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$')]],
       },
       { validator: passwordMatcher }
     );

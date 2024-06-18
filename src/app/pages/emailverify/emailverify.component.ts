@@ -18,7 +18,7 @@ import { ToastrService } from 'ngx-toastr';
     ngOnInit() {
       this.emailverifyForm = this.fb.group({
         email: [{value:this.authService.getEmail(),disabled:true}, [Validators.required]],
-        otp: ['', [Validators.required, Validators.maxLength(6)]]
+        otp: ['', [Validators.required, Validators.maxLength(6), Validators.minLength(6),Validators.pattern(/^\d{6}$/)]]
       });
     }
 
