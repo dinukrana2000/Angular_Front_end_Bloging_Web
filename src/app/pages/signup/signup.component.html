@@ -21,11 +21,14 @@
         <mat-error *ngIf="signupForm.get('username')?.touched && signupForm.get('username')?.errors?.['required']">
           Username is required
         </mat-error>
-        <mat-error *ngIf="signupForm.get('username')?.touched && signupForm.get('username')?.errors?.['minlength']">
+        <mat-error *ngIf="signupForm.get('username')?.touched && !signupForm.get('username')?.errors?.['required'] && signupForm.get('username')?.errors?.['minlength']">
           Username must be at least 3 characters
         </mat-error>
-        <mat-error *ngIf="signupForm.get('username')?.touched && signupForm.get('username')?.errors?.['maxlength']">
+        <mat-error *ngIf="signupForm.get('username')?.touched && !signupForm.get('username')?.errors?.['required'] && !signupForm.get('username')?.errors?.['minlength'] && signupForm.get('username')?.errors?.['maxlength']">
           Username must be at most 20 characters
+        </mat-error>
+        <mat-error *ngIf="signupForm.get('username')?.touched && !signupForm.get('username')?.errors?.['required'] && !signupForm.get('username')?.errors?.['minlength'] && ! signupForm.get('username')?.errors?.['maxlength'] && signupForm.get('username')?.errors?.['invalidUsername']">
+          At least one number and letter needed no symbloes
         </mat-error>
       </mat-form-field>
 
@@ -35,10 +38,10 @@
         <mat-error *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['required']">
           Email is required
         </mat-error>
-        <mat-error *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['email']">
+        <mat-error *ngIf="signupForm.get('email')?.touched && !signupForm.get('email')?.errors?.['required'] && signupForm.get('email')?.errors?.['email']">
           Email is invalid
         </mat-error>
-        <mat-error *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['maxlength']">
+        <mat-error *ngIf="signupForm.get('email')?.touched && !signupForm.get('email')?.errors?.['required'] && !signupForm.get('email')?.errors?.['email'] && signupForm.get('email')?.errors?.['maxlength']">
           Email is maximum 100 characters
         </mat-error>
       </mat-form-field>
@@ -49,10 +52,10 @@
         <mat-error *ngIf="signupForm.get('address')?.touched && signupForm.get('address')?.errors?.['required']">
           Address is required
         </mat-error>
-        <mat-error *ngIf="signupForm.get('address')?.touched && signupForm.get('address')?.errors?.['minlength']">
+        <mat-error *ngIf="signupForm.get('address')?.touched && !signupForm.get('address')?.errors?.['required'] && signupForm.get('address')?.errors?.['minlength']">
           Address must be at least 5 characters
         </mat-error>
-        <mat-error *ngIf="signupForm.get('address')?.touched && signupForm.get('address')?.errors?.['maxlength']">
+        <mat-error *ngIf="signupForm.get('address')?.touched && !signupForm.get('address')?.errors?.['required'] && !signupForm.get('address')?.errors?.['minlength'] && signupForm.get('address')?.errors?.['maxlength']">
           Address no more thatn 50 characters
         </mat-error>
       </mat-form-field>
@@ -64,13 +67,13 @@
         <mat-error *ngIf="signupForm.get('number')?.touched && signupForm.get('number')?.errors?.['required']">
           Contact is required
         </mat-error>
-        <mat-error *ngIf="signupForm.get('number')?.touched && signupForm.get('number')?.errors?.['minlength']">
+        <mat-error *ngIf="signupForm.get('number')?.touched && !signupForm.get('number')?.errors?.['required'] && signupForm.get('number')?.errors?.['minlength']">
           Contact must be at least 10 characters
         </mat-error>
-        <mat-error *ngIf="signupForm.get('number')?.touched && signupForm.get('number')?.errors?.['maxlength']">
+        <mat-error *ngIf="signupForm.get('number')?.touched && !signupForm.get('number')?.errors?.['required'] && !signupForm.get('number')?.errors?.['minlength'] && signupForm.get('number')?.errors?.['maxlength']">
           Contact must be at most 10 characters
         </mat-error>
-        <mat-error *ngIf="signupForm.get('number')?.touched && signupForm.get('number')?.errors?.['pattern']">
+        <mat-error *ngIf="signupForm.get('number')?.touched && !signupForm.get('number')?.errors?.['required'] && !signupForm.get('number')?.errors?.['minlength'] && !signupForm.get('number')?.errors?.['maxlength'] && signupForm.get('number')?.errors?.['pattern']">
           Contact must only numbers
         </mat-error>
       </mat-form-field>
@@ -84,13 +87,13 @@
         <mat-error *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['required']">
           Password is required
         </mat-error>
-        <mat-error *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['minlength']">
+        <mat-error *ngIf="signupForm.get('password')?.touched && !signupForm.get('password')?.errors?.['required'] && signupForm.get('password')?.errors?.['minlength']">
           Password must be at least 6 characters
         </mat-error>
-        <mat-error *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['maxlength']">
+        <mat-error *ngIf="signupForm.get('password')?.touched && !signupForm.get('password')?.errors?.['required'] && !signupForm.get('password')?.errors?.['minlength'] && signupForm.get('password')?.errors?.['maxlength']">
           Password must be at most 15 characters
         </mat-error>
-        <mat-error *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['pattern']">
+        <mat-error *ngIf="signupForm.get('password')?.touched && !signupForm.get('password')?.errors?.['required'] && !signupForm.get('password')?.errors?.['minlength'] && !signupForm.get('password')?.errors?.['maxlength'] &&  signupForm.get('password')?.errors?.['pattern']">
           must be at least one number one Upper and lower case letter and no symbol
         </mat-error>
         
@@ -105,19 +108,12 @@
         <mat-error *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['required']">
           Confirm Password is required
         </mat-error>
-        <mat-error *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['minlength']">
-          Confirm Password must be at least 6 characters
-        </mat-error>
-        <mat-error *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['maxlength']">
-          Confirm Password must be at most 15 characters
-        </mat-error>
-        <mat-error *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['pattern']">
-          must be at least one number one Upper and lower case letter and no symbol
-        </mat-error>
-        <mat-error *ngIf="signupForm.errors?.['mismatch'] && (signupForm.get('confirmPassword')?.touched||signupForm.get('password')?.touched)">
-          Passwords do not match.
-        </mat-error>
+      
+       
       </mat-form-field>
+      <mat-error *ngIf="signupForm.get('confirmPassword')?.touched && !signupForm.get('confirmPassword')?.errors?.['required'] && signupForm.errors?.['mismatch'] ">
+        Passwords do not match.
+      </mat-error>
 
       <div class="button-container">
         <button mat-raised-button type="submit" id="bt1">Sign Up</button>

@@ -3,6 +3,7 @@ import { FormGroup,FormBuilder,Validators, ValidatorFn, AbstractControl, Validat
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/userservice/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { CustomValidators } from 'src/app/validation/Signup-validaton';
 
 @Component({
   selector: 'app-resetpassword',
@@ -22,7 +23,7 @@ ngOnInit() {
     email: [localStorage.getItem('resetPasswordEmail'), [Validators.required]],
     pwd: ['', [Validators.required, Validators.minLength(6), Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$'), Validators.maxLength(15)]],
     confirm_pwd: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(15)]],
-  }, { validators: passwordMatchValidator });
+  }, { validators: CustomValidators.resetpasswordMatcher });
 }
 
 
@@ -49,13 +50,3 @@ ngOnInit() {
 
 }
 
- const passwordMatchValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
-  const password = control.get('pwd')?.value;
-  const confirmPassword = control.get('confirm_pwd')?.value;
-
-  if (password && confirmPassword && password !== confirmPassword) {
-    return { passwordMismatch: true };
-  }
-
-  return null;
-};

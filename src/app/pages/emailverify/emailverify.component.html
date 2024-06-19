@@ -19,13 +19,13 @@
         <mat-error *ngIf="emailverifyForm.get('otp')?.touched && emailverifyForm.get('otp')?.errors?.['required']">
             Otp is required
         </mat-error>
-        <mat-error *ngIf="emailverifyForm.get('otp')?.touched && emailverifyForm.get('otp')?.errors?.['minlength']">
+        <mat-error *ngIf="emailverifyForm.get('otp')?.touched && !emailverifyForm.get('otp')?.errors?.['required'] && emailverifyForm.get('otp')?.errors?.['minlength']">
             Otp at least 6 numbers
         </mat-error>
-          <mat-error *ngIf="emailverifyForm.get('otp')?.touched && emailverifyForm.get('otp')?.errors?.['maxlength']">
+          <mat-error *ngIf="emailverifyForm.get('otp')?.touched && !emailverifyForm.get('otp')?.errors?.['required'] && !emailverifyForm.get('otp')?.errors?.['minlength'] && emailverifyForm.get('otp')?.errors?.['maxlength']">
             Otp at most 6 numbers
         </mat-error>
-        <mat-error *ngIf="emailverifyForm.get('otp')?.touched && emailverifyForm.get('otp')?.errors?.['pattern']">
+        <mat-error *ngIf="emailverifyForm.get('otp')?.touched && !emailverifyForm.get('otp')?.errors?.['required'] && !emailverifyForm.get('otp')?.errors?.['minlength'] && !emailverifyForm.get('otp')?.errors?.['maxlength'] && emailverifyForm.get('otp')?.errors?.['pattern']">
             Otp must only numbers
         </mat-error>
     </mat-form-field>

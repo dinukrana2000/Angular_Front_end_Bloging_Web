@@ -18,10 +18,10 @@
           <mat-error *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.errors?.['required']">
             Username is required
           </mat-error>
-          <mat-error *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.errors?.['minlength']">
+          <mat-error *ngIf="loginForm.get('username')?.touched && !loginForm.get('username')?.errors?.['required'] && loginForm.get('username')?.errors?.['minlength']">
             Username must be at least 3 characters
           </mat-error>
-          <mat-error *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.errors?.['maxlength']">
+          <mat-error *ngIf="loginForm.get('username')?.touched && !loginForm.get('username')?.errors?.['required'] && !loginForm.get('username')?.errors?.['minlength'] && loginForm.get('username')?.errors?.['maxlength']">
             Username must be at most 50 characters
           </mat-error>
          
@@ -38,13 +38,13 @@
           <mat-error *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']">
             Password is required
           </mat-error>
-          <mat-error *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['minlength']">
+          <mat-error *ngIf="loginForm.get('password')?.touched && !loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.errors?.['minlength']">
             Password must be at least 6 characters
           </mat-error>
-          <mat-error *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['maxlength']">
+          <mat-error *ngIf="loginForm.get('password')?.touched && !loginForm.get('password')?.errors?.['required'] && !loginForm.get('password')?.errors?.['minlength'] && loginForm.get('password')?.errors?.['maxlength']">
             Password must be at most 15 characters
           </mat-error>
-          <mat-error *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['pattern']">
+          <mat-error *ngIf="loginForm.get('password')?.touched && !loginForm.get('password')?.errors?.['required'] && !loginForm.get('password')?.errors?.['minlength'] && !loginForm.get('password')?.errors?.['maxlength'] && loginForm.get('password')?.errors?.['pattern']">
             must be at least one number one Upper and lower case letter and no symbol
           </mat-error>
         </mat-form-field>
