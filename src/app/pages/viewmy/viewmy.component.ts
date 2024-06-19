@@ -2,8 +2,9 @@ import { Component,OnInit } from '@angular/core';
 import { PostserviceService } from 'src/app/service/postservice/postservice.service';
 import { DialogboxdeleteComponent } from 'src/app/components/dialogboxdelete/dialogboxdelete.component';
 import { MatDialog } from '@angular/material/dialog';
-import { forkJoin } from 'rxjs';
+import { forkJoin,of } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { catchError } from 'rxjs/operators';
 
 
 @Component({
@@ -21,13 +22,28 @@ export class ViewmyComponent implements OnInit{
   
 
   ngOnInit() {
-    forkJoin([
-      this.postService.getMyPosts(),
-      this.postService.getuseremail()
-      ]).subscribe( ([posts, email]) => {
-      this.blogPosts = posts;
-      this.userEmail = email;
-    } );
+    forkJoin({
+      posts: this.postService.getMyPosts().pipe(
+        catchError(error => {
+          this.toastr.error('Failed to load posts(fork join)');
+          return of([]); 
+        })
+      ),
+      email: this.postService.getuseremail().pipe(
+        catchError(error => {
+          this.toastr.error('Failed to load email (fork join)');
+          return of(''); // Return an empty string if there's an error
+        })
+      )
+    }
+    ).subscribe(({ posts, email }) => {
+        this.blogPosts = posts;
+        this.userEmail = email;
+        
+        if(this.blogPosts.length>0 && email!=''){
+          this.toastr.success('Posts and email loaded successfully');
+        }
+      });
   }
 
   delete(postId: any) {

@@ -2,11 +2,12 @@
 
 <app-menubar>
     <div  class="bg" style="background-image: linear-gradient(to right, #060996, #ad0808);"></div>
+    <div style="text-align: center;color: antiquewhite;font-size: larger;"> {{userEmail}}</div>
     <mat-card *ngFor="let post of blogPosts" class="card">
       
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <div> {{userEmail}}</div>
+        
         <mat-card-title >{{ post.title }}</mat-card-title>
         <mat-card-subtitle >{{ post.author }}</mat-card-subtitle>
        
@@ -24,6 +25,7 @@
         </div>
       </mat-card-actions>
     </mat-card>
+    
   </app-menubar>
   
     
