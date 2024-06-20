@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { Observable, map } from 'rxjs';// reactive extension for js
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -40,9 +43,13 @@ login(user: any): Observable<any> {
   map((response: any) => {
     if (response&&response.token) {
       localStorage.setItem('JWT_Token', response.token);
+      localStorage.setItem('JWT_Refresh_Token', response.refreshToken);
       this.isLoggedIn = true;
     }
     return response;
+  }),
+  catchError(error => {
+    return error;
   })
 );
 }
@@ -69,11 +76,23 @@ resetPassword(resetData:any): Observable<any> {
 
 logout(): void {
   localStorage.removeItem('JWT_Token');
+  localStorage.removeItem('JWT_Refresh_Token');
   this.isLoggedIn = false;
 }
 
 isAuthenticated(): boolean {
   return !!localStorage.getItem('JWT_Token');
+}
+
+refreeToken(): Observable<any> {
+  const refreshToken = localStorage.getItem('JWT_Refresh_Token');
+  const expiredAccessToken = localStorage.getItem('JWT_Token');
+  return this.http.post(`${this.apiUrl}/user/refresh-token`, {expiredAccessToken:expiredAccessToken}, {
+    headers: new HttpHeaders({
+      Authorization: `Bearer ${refreshToken}`,
+      'Content-Type': 'application/json'
+    })
+  });
 }
 
 

@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
           this.toastr.success(response.message, 'Success');
           this.router.navigate(['/view']);
           localStorage.setItem('username',this.loginForm.get('username')?.value);
+         
         },
         error:error => {
           this.toastr.error(error.error.message, 'Error');

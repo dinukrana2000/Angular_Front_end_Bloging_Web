@@ -24,14 +24,15 @@ export class ViewmyComponent implements OnInit{
   ngOnInit() {
     forkJoin({
       posts: this.postService.getMyPosts().pipe(
-        catchError(error => {
-          this.toastr.error('Failed to load posts(fork join)');
+        catchError(Response => {
+          this.toastr.error('Failed to load My posts(fork join)');
+          this.toastr.error(Response.error.error + ''+':'+ Response.error.message);
           return of([]); 
         })
       ),
       email: this.postService.getuseremail().pipe(
         catchError(error => {
-          this.toastr.error('Failed to load email (fork join)');
+          this.toastr.error('Failed to load My email (fork join)');
           return of(''); // Return an empty string if there's an error
         })
       )
@@ -41,7 +42,7 @@ export class ViewmyComponent implements OnInit{
         this.userEmail = email;
         
         if(this.blogPosts.length>0 && email!=''){
-          this.toastr.success('Posts and email loaded successfully');
+          this.toastr.success('My Posts and email loaded successfully');
         }
       });
   }
