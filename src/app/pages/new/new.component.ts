@@ -35,7 +35,7 @@ onSubmit() {
       {
         next:response => {
           this.toastr.success(response.message, 'Success');
-          this.router.navigate(['/view']);
+          this.router.navigate(['/new']);
         },
         error:error => {
           this.toastr.error(error.error.message, 'Error');

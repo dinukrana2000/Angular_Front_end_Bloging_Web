@@ -5,9 +5,7 @@
   <mat-drawer #drawer opened="true" mode="side" position="end" class="drawer">
     
   <mat-nav-list >
-      <mat-list-item>
-          
-      </mat-list-item>
+     
       <mat-list-item>
       </mat-list-item>
       <mat-list-item>
@@ -25,13 +23,23 @@
       <mat-list-item>
           <button (click)="logout()" mat-button><mat-icon>logout</mat-icon> Logout</button>
       </mat-list-item>
+      
+      <mat-list-item *ngIf="badgevisible">
+        <button (click)="clearNotification()" mat-button>
+          <mat-icon matBadge="1" matBadgeColor="warn">notifications</mat-icon>
+          Notifications
+        </button>
+      </mat-list-item>
+      
      
   </mat-nav-list>
   </mat-drawer> 
   <mat-drawer-content  class="content">
       <div style="color: black;">
         <ng-content></ng-content>
-          
+        <div *ngIf="notification" class="notification">
+          {{ notification }}
+        </div>
           </div>
   </mat-drawer-content>
 </mat-drawer-container>
