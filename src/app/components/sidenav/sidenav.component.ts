@@ -14,8 +14,8 @@ import { WebsocketService } from 'src/app/service/postservice/websocket.service'
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent implements OnInit{
-  badgevisible = false;
-  notification: string | null = null;
+  badgevisible = true;
+  notifications: string[] = [];
 
 
   constructor(private auth: AuthService,private router: Router,private _snackBar:MatSnackBar,private dialog: MatDialog,private toastr:ToastrService,private websocketService: WebsocketService
@@ -24,21 +24,34 @@ export class SidenavComponent implements OnInit{
   ) { }
 
   ngOnInit(): void {
+    this.loadNotifications();
     this.websocketService.initializeWebSocketConnection();
     this.websocketService.subscribe('/topic/new-post', (message: any) => {
-      this.notification = ` ${message}`;
+      this.notifications.push(message);
+      this.saveNotifications();
       this.badgevisible = true;
     });
   }
-  badgevisibility() {
-    this.badgevisible = true;
+ 
+  loadNotifications() {
+    const storedNotifications = localStorage.getItem('notifications');
+    if (storedNotifications) {
+      this.notifications = JSON.parse(storedNotifications);
+      this.badgevisible = this.notifications.length > 0;
+    }
+  }
+
+  saveNotifications() {
+    localStorage.setItem('notifications', JSON.stringify(this.notifications));
   }
 
   clearNotification() {
-    if (this.notification) {
-      this.toastr.info(this.notification, 'Notification', { timeOut:0  });
-      this.notification = null;
-      this.badgevisible = false;
+    if (this.notifications.length > 0) {
+      const notificationList = this.notifications.join('<br>');
+      this.toastr.info(notificationList, 'Notifications', { timeOut: 0, enableHtml: true});
+      this.notifications = [];
+      this.saveNotifications();
+      this.badgevisible = true;
     }
   }
 
