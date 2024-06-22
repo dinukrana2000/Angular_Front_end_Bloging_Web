@@ -26,7 +26,7 @@ export class SidenavComponent implements OnInit{
   ngOnInit(): void {
     this.websocketService.initializeWebSocketConnection();
     this.websocketService.subscribe('/topic/new-post', (message: any) => {
-      this.notification = `New post created by ${message}`;
+      this.notification = ` ${message}`;
       this.badgevisible = true;
     });
   }
@@ -35,8 +35,11 @@ export class SidenavComponent implements OnInit{
   }
 
   clearNotification() {
-    this.notification = null;
-    this.badgevisible = false;
+    if (this.notification) {
+      this.toastr.info(this.notification, 'Notification', { timeOut:0  });
+      this.notification = null;
+      this.badgevisible = false;
+    }
   }
 
   logout() {
