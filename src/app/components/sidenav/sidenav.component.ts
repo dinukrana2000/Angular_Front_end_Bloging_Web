@@ -37,7 +37,7 @@ export class SidenavComponent implements OnInit{
     const storedNotifications = localStorage.getItem('notifications');
     if (storedNotifications) {
       this.notifications = JSON.parse(storedNotifications);
-      this.badgevisible = this.notifications.length > 0;
+      this.badgevisible = this.notifications.length >=0;
     }
   }
 
