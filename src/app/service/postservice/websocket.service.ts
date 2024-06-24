@@ -11,7 +11,7 @@ export class WebsocketService {
   constructor() {
     this.stompClient = new Client();
   }
-
+//configure and activate the WebSocket connection using the STOMP client instance.
   initializeWebSocketConnection(): void {
     this.stompClient.configure({
       brokerURL: 'ws://localhost:8080/web-socket',
