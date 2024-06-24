@@ -5,7 +5,7 @@
 
 <mat-card class="example-card">
     <mat-card-header>
-      <mat-card-title>
+      <mat-card-title i18n="@@welcome">
           Log in
       </mat-card-title>
     </mat-card-header>
@@ -52,9 +52,9 @@
        
     
        <div class="button-container"> 
-          <button mat-raised-button  type="submit" id="bt1">Log In</button>
-          <button mat-raised-button type="button" (click)="reset()" id="bt2">Cancel</button>
-          <button mat-raised-button type="button" id="bt3" routerLink="/signup">Sign Up</button>
+          <button mat-raised-button  type="submit" id="bt1" i18n="@@logbt">Log In</button>
+          <button mat-raised-button type="button" (click)="reset()" id="bt2" i18n="@@cancelbt">Cancel</button>
+          <button mat-raised-button type="button" id="bt3" routerLink="/signup" i18n="@@signbt">Sign Up</button>
           <a routerLink="/forgotpassword" id="forgot">Forgot Password?</a>
         </div>
       </form>

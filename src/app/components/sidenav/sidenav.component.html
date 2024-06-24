@@ -8,6 +8,12 @@
      
       <mat-list-item>
       </mat-list-item>
+      <mat-list-item *ngIf="badgevisible">
+        <button (click)="clearNotification()" mat-button>
+          <mat-icon matBadge="{{notifications.length}}" matBadgeColor="warn">notifications</mat-icon>
+        
+        </button>
+      </mat-list-item>
       <mat-list-item>
           <button routerLink="/view" mat-button><mat-icon>dashboard</mat-icon> Dashboard</button>
       </mat-list-item>
@@ -24,12 +30,7 @@
           <button (click)="logout()" mat-button><mat-icon>logout</mat-icon> Logout</button>
       </mat-list-item>
       
-      <mat-list-item *ngIf="badgevisible">
-        <button (click)="clearNotification()" mat-button>
-          <mat-icon matBadge="{{notifications.length}}" matBadgeColor="warn">notifications</mat-icon>
-        
-        </button>
-      </mat-list-item>
+     
       
      
   </mat-nav-list>

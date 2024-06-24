@@ -48,7 +48,7 @@ export class SidenavComponent implements OnInit{
   clearNotification() {
     if (this.notifications.length > 0) {
       const notificationList = this.notifications.join('<br>');
-      this.toastr.info(notificationList, 'Notifications', { timeOut: 0, enableHtml: true});
+      this.toastr.info(notificationList, 'Notifications', { timeOut: 0, enableHtml: true, closeButton: true, positionClass: 'toast-bottom-left',extendedTimeOut:0,tapToDismiss:false});
       this.notifications = [];
       this.saveNotifications();
       this.badgevisible = true;

@@ -4,8 +4,13 @@
   "newProjectRoot": "projects",
   "projects": {
     "dinuk_frontend2": {
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "si-LK": "src/locale/messages.si.xlf"
+        }
+      },
       "projectType": "application",
-      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -16,14 +21,9 @@
             "outputPath": "dist/dinuk_frontend2",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "@angular/material/prebuilt-themes/pink-bluegrey.css",
               "node_modules/ngx-toastr/toastr.css",
@@ -61,18 +61,35 @@
                   "with": "src/environments/environment.development.ts"
                 }
               ]
+            },
+            "en-US": {
+              "localize": ["en-US"],
+              "outputPath": "dist/dinuk_frontend2/en-US"
+            },
+            "si-LK": {
+              "localize": ["si-LK"],
+              "outputPath": "dist/dinuk_frontend2/si-LK"
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "dinuk_frontend2:build:development"
+          },
           "configurations": {
             "production": {
               "browserTarget": "dinuk_frontend2:build:production"
             },
             "development": {
               "browserTarget": "dinuk_frontend2:build:development"
+            },
+            "en-US": {
+              "browserTarget": "dinuk_frontend2:build:en-US"
+            },
+            "si-LK": {
+              "browserTarget": "dinuk_frontend2:build:si-LK"
             }
           },
           "defaultConfiguration": "development"
@@ -86,15 +103,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "@angular/material/prebuilt-themes/pink-bluegrey.css",
               "node_modules/ngx-toastr/toastr.css",

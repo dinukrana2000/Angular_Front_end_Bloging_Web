@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="welcome" datatype="html">
+        <source>Log in</source>
+        <target>ඇතුල් වන්න</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">8,10</context>
+        </context-group>
+
+      </trans-unit>
+       <trans-unit id="logbt" datatype="html">
+        <source>Log in</source>
+        <target>ඇතුල් වන්න</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+
+      </trans-unit>
+       <trans-unit id="cancelbt" datatype="html">
+        <source>Cancel</source>
+        <target>අවලංගු කරන්න</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+
+       <trans-unit id="signbt" datatype="html">
+        <source>Sign up</source>
+        <target>ලියාපදිංචි වන්න</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+      </trans-unit>
+
+
+       <trans-unit id="Signup" datatype="html">
+        <source>Sign Up</source>
+        <target>ලියාපදිංචි වන්න</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/signup/signup.component.html</context>
+          <context context-type="linenumber">10,11</context>
+          
+        </context-group>
+      </trans-unit>
+
+       <trans-unit id="Signupbt" datatype="html">
+        <source>Sign Up</source>
+        <target>ලියාපදිංචි වන්න</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/signup/signup.component.html</context>
+          <context context-type="linenumber">119,120</context>
+          
+        </context-group>
+      </trans-unit>
+       <trans-unit id="Cancelbt" datatype="html">
+        <source>Cancel</source>
+        <target>අවලංගු කරන්න</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/signup/signup.component.html</context>
+          <context context-type="linenumber">122</context>
+          
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Loginbt" datatype="html">
+        <source>Log in</source>
+        <target>ඇතුල් වන්න</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">123</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

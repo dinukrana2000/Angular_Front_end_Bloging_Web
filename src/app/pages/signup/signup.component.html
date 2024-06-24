@@ -7,7 +7,7 @@
 
 <mat-card class="example-card">
   <mat-card-header>
-    <mat-card-title>
+    <mat-card-title i18n="@@Signup">
       Sign Up
     </mat-card-title>
     
@@ -116,9 +116,11 @@
       </mat-error>
 
       <div class="button-container">
-        <button mat-raised-button type="submit" id="bt1">Sign Up</button>
-        <button mat-raised-button type="button" (click)="reset()" id="bt2">Cancel</button>
-        <button mat-raised-button type="button" id="bt3" routerLink="/login">Log In</button>
+        <button mat-raised-button type="submit" id="bt1" i18n="@@Signupbt" >
+          Sign Up
+        </button>
+        <button mat-raised-button type="button" (click)="reset()" id="bt2" i18n="@@Cancelbt">Cancel</button>
+        <button mat-raised-button type="button" id="bt3" routerLink="/login" i18n="@@Loginbt">Log In</button>  
         
       </div>
       
