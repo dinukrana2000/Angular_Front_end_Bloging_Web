@@ -2,78 +2,133 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="welcome" datatype="html">
+      <trans-unit id="login" datatype="html">
         <source>Log in</source>
         <target>ඇතුල් වන්න</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
-          <context context-type="linenumber">8,10</context>
-        </context-group>
-
       </trans-unit>
-       <trans-unit id="logbt" datatype="html">
-        <source>Log in</source>
-        <target>ඇතුල් වන්න</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
-          <context context-type="linenumber">55</context>
-        </context-group>
-
-      </trans-unit>
-       <trans-unit id="cancelbt" datatype="html">
+      <trans-unit id="cancel" datatype="html">
         <source>Cancel</source>
         <target>අවලංගු කරන්න</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
-          <context context-type="linenumber">56</context>
-        </context-group>
       </trans-unit>
-
-       <trans-unit id="signbt" datatype="html">
+      <trans-unit id="signup" datatype="html">
         <source>Sign up</source>
         <target>ලියාපදිංචි වන්න</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
-          <context context-type="linenumber">57</context>
-        </context-group>
       </trans-unit>
-
-
-       <trans-unit id="Signup" datatype="html">
-        <source>Sign Up</source>
-        <target>ලියාපදිංචි වන්න</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/signup/signup.component.html</context>
-          <context context-type="linenumber">10,11</context>
-          
-        </context-group>
+      <trans-unit id="forgotPassword" datatype="html">
+        <source>Forgot Password</source>
+        <target>මුරපදය අමතකද</target>
       </trans-unit>
-
-       <trans-unit id="Signupbt" datatype="html">
-        <source>Sign Up</source>
-        <target>ලියාපදිංචි වන්න</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/signup/signup.component.html</context>
-          <context context-type="linenumber">119,120</context>
-          
-        </context-group>
+      <trans-unit id="password" datatype="html">
+        <source>Password</source>
+        <target>මුරපදය</target>
       </trans-unit>
-       <trans-unit id="Cancelbt" datatype="html">
-        <source>Cancel</source>
-        <target>අවලංගු කරන්න</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/signup/signup.component.html</context>
-          <context context-type="linenumber">122</context>
-          
-        </context-group>
+      <trans-unit id="confirmPassword" datatype="html">
+        <source>Confirm Password</source>
+        <target>මුරපදය තහවුරු කරන්න</target>
       </trans-unit>
-      <trans-unit id="Loginbt" datatype="html">
-        <source>Log in</source>
-        <target>ඇතුල් වන්න</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
-          <context context-type="linenumber">123</context>
-        </context-group>
+      <trans-unit id="username" datatype="html">
+        <source>Username</source>
+        <target>පරිශීලක නාමය</target>
+      </trans-unit>
+      <trans-unit id="error1" datatype="html">
+        <source>Username is required</source>
+        <target>පරිශීලක නාමය අත්‍යවශ්‍ය වේ</target>
+      </trans-unit>
+      <trans-unit id="error2" datatype="html">
+        <source>Username must be at least 3 characters</source>
+        <target>පරිශීලක නාමය අවම වශයෙන් අකුරු 3 ක් විය යුතුය</target>
+      </trans-unit>
+      <trans-unit id="error3" datatype="html">
+        <source>Username must be at most 20 characters</source>
+        <target>පරිශීලක නාමය උපරිමයෙන් අකුරු 20 ක් විය යුතුය</target>
+      </trans-unit>
+      <trans-unit id="error4" datatype="html">
+        <source>At least one number and letter needed no symbols</source>
+        <target>අවම වශයෙන් එක් අංකයක් සහ අකුරක් අවශ්‍ය වේ</target>
+      </trans-unit>
+      <trans-unit id="email" datatype="html">
+        <source>Email</source>
+        <target>ඊමේල්</target>
+      </trans-unit>
+      <trans-unit id="error5" datatype="html">
+        <source>Email is required</source>
+        <target>ඊමේල් අවශ්‍ය වේ</target>
+      </trans-unit>
+      <trans-unit id="error6" datatype="html">
+        <source>Email is invalid</source>
+        <target>ඊමේල් වලංගු නැත</target>
+      </trans-unit>
+      <trans-unit id="error7" datatype="html">
+        <source>Email is maximum 100 characters</source>
+        <target>ඊමේල් උපරිමයෙන් අකුරු 100 ක් වේ</target>
+      </trans-unit>
+      <trans-unit id="address" datatype="html">
+        <source>Address</source>
+        <target>ලිපිනය</target>
+      </trans-unit>
+      <trans-unit id="error8" datatype="html">
+        <source>Address is required</source>
+        <target>ලිපිනය අවශ්‍ය වේ</target>
+      </trans-unit>
+      <trans-unit id="error9" datatype="html">
+        <source>Address must be at least 5 characters</source>
+        <target>ලිපිනය අවම වශයෙන් අකුරු 5 ක් විය යුතුය</target>
+      </trans-unit>
+      <trans-unit id="error10" datatype="html">
+        <source>Address must be no more than 50 characters</source>
+        <target>ලිපිනය අකුරු 50 කට අඩු විය යුතුය</target>
+      </trans-unit>
+      <trans-unit id="contact" datatype="html">
+        <source>Contact</source>
+        <target>සම්බන්ධ</target>
+      </trans-unit>
+      <trans-unit id="error11" datatype="html">
+        <source>Contact is required</source>
+        <target>සම්බන්ධතාව අවශ්‍ය වේ</target>
+      </trans-unit>
+      <trans-unit id="error12" datatype="html">
+        <source>Contact must be at least 10 characters</source>
+        <target>සම්බන්ධතාව අවම වශයෙන් අකුරු 10 ක් විය යුතුය</target>
+      </trans-unit>
+      <trans-unit id="error13" datatype="html">
+        <source>Contact must be at most 10 characters</source>
+        <target>සම්බන්ධතාව උපරිමයෙන් අකුරු 10 ක් විය යුතුය</target>
+      </trans-unit>
+      <trans-unit id="error14" datatype="html">
+        <source>Contact must only be numbers</source>
+        <target>සම්බන්ධතාවයේ අංක පමණක් විය යුතුය</target>
+      </trans-unit>
+      <trans-unit id="password" datatype="html">
+        <source>Password</source>
+        <target>මුරපදය</target>
+      </trans-unit>
+      <trans-unit id="error15" datatype="html">
+        <source>Password is required</source>
+        <target>මුරපදය අවශ්‍ය වේ</target>
+      </trans-unit>
+      <trans-unit id="error16" datatype="html">
+        <source>Password must be at least 6 characters</source>
+        <target>මුරපදය අවම වශයෙන් අකුරු 6 ක් විය යුතුය</target>
+      </trans-unit>
+      <trans-unit id="error17" datatype="html">
+        <source>Password must be at most 15 characters</source>
+        <target>මුරපදය උපරිමයෙන් අකුරු 15 ක් විය යුතුය</target>
+      </trans-unit>
+      <trans-unit id="error18" datatype="html">
+        <source>Must be at least one number, one uppercase, and one lowercase letter with no symbols</source>
+        <target>සංකේත නොමැති අවම වශයෙන් එක් අංකයක්, ලොකු අකුරක් සහ කුඩා අකුරක්වත් විය යුතුය </target>
+      </trans-unit>
+      <trans-unit id="confirmPassword" datatype="html">
+        <source>Confirm Password</source>
+        <target>මුරපදය තහවුරු කරන්න</target>
+      </trans-unit>
+      <trans-unit id="error19" datatype="html">
+        <source>Confirm Password is required</source>
+        <target>මුරපදය තහවුරු කිරීම අවශ්‍ය වේ</target>
+      </trans-unit>
+      <trans-unit id="error20" datatype="html">
+        <source>Passwords do not match</source>
+        <target>මුරපද ගැලපෙන්නේ නැත</target>
       </trans-unit>
     </body>
   </file>

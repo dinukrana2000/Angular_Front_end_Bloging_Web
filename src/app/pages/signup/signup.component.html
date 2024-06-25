@@ -4,123 +4,124 @@
 
 
 
-
 <mat-card class="example-card">
   <mat-card-header>
-    <mat-card-title i18n="@@Signup">
-      Sign Up
+    <mat-card-title >
+      {{'signup'|translate}}
     </mat-card-title>
+    <app-language-switcher-component></app-language-switcher-component>
+
     
   </mat-card-header>
 
   <mat-card-content>
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="outline">
-        <mat-label>Username</mat-label>
-        <input matInput type="text" id="username" formControlName="username">
-        <mat-error *ngIf="signupForm.get('username')?.touched && signupForm.get('username')?.errors?.['required']">
-          Username is required
+        <mat-label >{{'username'|translate}}</mat-label>
+        <input matInput type="text" id="username" formControlName="username" >
+        <mat-error *ngIf="signupForm.get('username')?.touched && signupForm.get('username')?.errors?.['required']" >
+          {{'error1'|translate}}
         </mat-error>
-        <mat-error *ngIf="signupForm.get('username')?.touched && !signupForm.get('username')?.errors?.['required'] && signupForm.get('username')?.errors?.['minlength']">
-          Username must be at least 3 characters
+        <mat-error *ngIf="signupForm.get('username')?.touched && !signupForm.get('username')?.errors?.['required'] && signupForm.get('username')?.errors?.['minlength']" >
+         {{'error2'|translate}}
         </mat-error>
-        <mat-error *ngIf="signupForm.get('username')?.touched && !signupForm.get('username')?.errors?.['required'] && !signupForm.get('username')?.errors?.['minlength'] && signupForm.get('username')?.errors?.['maxlength']">
-          Username must be at most 20 characters
+        <mat-error *ngIf="signupForm.get('username')?.touched && !signupForm.get('username')?.errors?.['required'] && !signupForm.get('username')?.errors?.['minlength'] && signupForm.get('username')?.errors?.['maxlength']" >
+          {{'error3'|translate}}
         </mat-error>
-        <mat-error *ngIf="signupForm.get('username')?.touched && !signupForm.get('username')?.errors?.['required'] && !signupForm.get('username')?.errors?.['minlength'] && ! signupForm.get('username')?.errors?.['maxlength'] && signupForm.get('username')?.errors?.['invalidUsername']">
-          At least one number and letter needed no symbloes
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
-        <input matInput type="email" id="email" formControlName="email" placeholder="abc@example.com">
-        <mat-error *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['required']">
-          Email is required
-        </mat-error>
-        <mat-error *ngIf="signupForm.get('email')?.touched && !signupForm.get('email')?.errors?.['required'] && signupForm.get('email')?.errors?.['email']">
-          Email is invalid
-        </mat-error>
-        <mat-error *ngIf="signupForm.get('email')?.touched && !signupForm.get('email')?.errors?.['required'] && !signupForm.get('email')?.errors?.['email'] && signupForm.get('email')?.errors?.['maxlength']">
-          Email is maximum 100 characters
+        <mat-error *ngIf="signupForm.get('username')?.touched && !signupForm.get('username')?.errors?.['required'] && !signupForm.get('username')?.errors?.['minlength'] && ! signupForm.get('username')?.errors?.['maxlength'] && signupForm.get('username')?.errors?.['invalidUsername']" >
+          {{'error4'|translate}}
         </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Address</mat-label>
+        <mat-label >{{'email'|translate}} </mat-label>
+        <input matInput type="email" id="email" formControlName="email" placeholder="abc@example.com" >
+        <mat-error *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['required']" >
+          {{'error5'|translate}}
+        </mat-error>
+        <mat-error *ngIf="signupForm.get('email')?.touched && !signupForm.get('email')?.errors?.['required'] && signupForm.get('email')?.errors?.['email']" >
+          {{'error6'|translate}}
+        </mat-error>
+        <mat-error *ngIf="signupForm.get('email')?.touched && !signupForm.get('email')?.errors?.['required'] && !signupForm.get('email')?.errors?.['email'] && signupForm.get('email')?.errors?.['maxlength']" >
+          {{'error7'|translate}}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label >{{'address'|translate}}</mat-label>
         <input matInput type="text" id="address" formControlName="address">
-        <mat-error *ngIf="signupForm.get('address')?.touched && signupForm.get('address')?.errors?.['required']">
-          Address is required
+        <mat-error *ngIf="signupForm.get('address')?.touched && signupForm.get('address')?.errors?.['required']" >
+          {{'error8'|translate}}
         </mat-error>
-        <mat-error *ngIf="signupForm.get('address')?.touched && !signupForm.get('address')?.errors?.['required'] && signupForm.get('address')?.errors?.['minlength']">
-          Address must be at least 5 characters
+        <mat-error *ngIf="signupForm.get('address')?.touched && !signupForm.get('address')?.errors?.['required'] && signupForm.get('address')?.errors?.['minlength']" >
+          {{'error9'|translate}}
         </mat-error>
-        <mat-error *ngIf="signupForm.get('address')?.touched && !signupForm.get('address')?.errors?.['required'] && !signupForm.get('address')?.errors?.['minlength'] && signupForm.get('address')?.errors?.['maxlength']">
-          Address no more thatn 50 characters
+        <mat-error *ngIf="signupForm.get('address')?.touched && !signupForm.get('address')?.errors?.['required'] && !signupForm.get('address')?.errors?.['minlength'] && signupForm.get('address')?.errors?.['maxlength']" >
+          {{'error10'|translate}}
         </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Contact</mat-label>
+        <mat-label >{{'contact'|translate}}</mat-label>
         <input matInput type="text" id="number" formControlName="number" placeholder="0112-123-456">
         <mat-icon matSuffix>phone</mat-icon>
-        <mat-error *ngIf="signupForm.get('number')?.touched && signupForm.get('number')?.errors?.['required']">
-          Contact is required
+        <mat-error *ngIf="signupForm.get('number')?.touched && signupForm.get('number')?.errors?.['required']" >
+          {{'error11'|translate}}
         </mat-error>
-        <mat-error *ngIf="signupForm.get('number')?.touched && !signupForm.get('number')?.errors?.['required'] && signupForm.get('number')?.errors?.['minlength']">
-          Contact must be at least 10 characters
+        <mat-error *ngIf="signupForm.get('number')?.touched && !signupForm.get('number')?.errors?.['required'] && signupForm.get('number')?.errors?.['minlength']" >
+          {{'error12'|translate}}
         </mat-error>
-        <mat-error *ngIf="signupForm.get('number')?.touched && !signupForm.get('number')?.errors?.['required'] && !signupForm.get('number')?.errors?.['minlength'] && signupForm.get('number')?.errors?.['maxlength']">
-          Contact must be at most 10 characters
+        <mat-error *ngIf="signupForm.get('number')?.touched && !signupForm.get('number')?.errors?.['required'] && !signupForm.get('number')?.errors?.['minlength'] && signupForm.get('number')?.errors?.['maxlength']" >
+          {{'error13'|translate}}
         </mat-error>
-        <mat-error *ngIf="signupForm.get('number')?.touched && !signupForm.get('number')?.errors?.['required'] && !signupForm.get('number')?.errors?.['minlength'] && !signupForm.get('number')?.errors?.['maxlength'] && signupForm.get('number')?.errors?.['pattern']">
-          Contact must only numbers
+        <mat-error *ngIf="signupForm.get('number')?.touched && !signupForm.get('number')?.errors?.['required'] && !signupForm.get('number')?.errors?.['minlength'] && !signupForm.get('number')?.errors?.['maxlength'] && signupForm.get('number')?.errors?.['pattern']" >
+          {{'error14'|translate}}
         </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Password</mat-label>
+        <mat-label >{{'password'|translate}}</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'" id="password" formControlName="password">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
-        <mat-error *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['required']">
-          Password is required
+        <mat-error *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['required']" >
+          {{'error15'|translate}}
         </mat-error>
-        <mat-error *ngIf="signupForm.get('password')?.touched && !signupForm.get('password')?.errors?.['required'] && signupForm.get('password')?.errors?.['minlength']">
-          Password must be at least 6 characters
+        <mat-error *ngIf="signupForm.get('password')?.touched && !signupForm.get('password')?.errors?.['required'] && signupForm.get('password')?.errors?.['minlength']" >
+          {{'error16'|translate}}
         </mat-error>
-        <mat-error *ngIf="signupForm.get('password')?.touched && !signupForm.get('password')?.errors?.['required'] && !signupForm.get('password')?.errors?.['minlength'] && signupForm.get('password')?.errors?.['maxlength']">
-          Password must be at most 15 characters
+        <mat-error *ngIf="signupForm.get('password')?.touched && !signupForm.get('password')?.errors?.['required'] && !signupForm.get('password')?.errors?.['minlength'] && signupForm.get('password')?.errors?.['maxlength']" >
+          {{'error17'|translate}}
         </mat-error>
-        <mat-error *ngIf="signupForm.get('password')?.touched && !signupForm.get('password')?.errors?.['required'] && !signupForm.get('password')?.errors?.['minlength'] && !signupForm.get('password')?.errors?.['maxlength'] &&  signupForm.get('password')?.errors?.['pattern']">
-          must be at least one number one Upper and lower case letter and no symbol
+        <mat-error *ngIf="signupForm.get('password')?.touched && !signupForm.get('password')?.errors?.['required'] && !signupForm.get('password')?.errors?.['minlength'] && !signupForm.get('password')?.errors?.['maxlength'] &&  signupForm.get('password')?.errors?.['pattern']" >
+          {{'error18'|translate}}
         </mat-error>
         
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Confirm Password</mat-label>
+        <mat-label >{{'confirmPassword'|translate}}</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'" id="confirmPassword" formControlName="confirmPassword">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
-        <mat-error *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['required']">
-          Confirm Password is required
+        <mat-error *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['required']" >
+          {{'error19'|translate}}
         </mat-error>
       
        
       </mat-form-field>
-      <mat-error *ngIf="signupForm.get('confirmPassword')?.touched && !signupForm.get('confirmPassword')?.errors?.['required'] && signupForm.errors?.['mismatch'] ">
-        Passwords do not match.
+      <mat-error *ngIf="signupForm.get('confirmPassword')?.touched && !signupForm.get('confirmPassword')?.errors?.['required'] && signupForm.errors?.['mismatch'] " >
+        {{'error20'|translate}}
       </mat-error>
 
       <div class="button-container">
-        <button mat-raised-button type="submit" id="bt1" i18n="@@Signupbt" >
-          Sign Up
+        <button mat-raised-button type="submit" id="bt1"  >
+          {{ 'signup' | translate }}
         </button>
-        <button mat-raised-button type="button" (click)="reset()" id="bt2" i18n="@@Cancelbt">Cancel</button>
-        <button mat-raised-button type="button" id="bt3" routerLink="/login" i18n="@@Loginbt">Log In</button>  
+        <button mat-raised-button type="button" (click)="reset()" id="bt2" >{{ 'cancel' | translate }}</button>
+        <button mat-raised-button type="button" id="bt3" routerLink="/login" >{{'login' | translate}}</button>  
         
       </div>
       

@@ -5,24 +5,28 @@
 
 <mat-card class="example-card">
     <mat-card-header>
-      <mat-card-title i18n="@@welcome">
-          Log in
+      <mat-card-title >
+        {{'login'|translate}}
+
       </mat-card-title>
     </mat-card-header>
   
     <mat-card-content>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <mat-form-field appearance="outline">
-          <mat-label>Username</mat-label>
+          <mat-label >{{'username'|translate}}</mat-label>
           <input matInput type="text" id="username" formControlName="username">
-          <mat-error *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.errors?.['required']">
-            Username is required
+          <mat-error *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.errors?.['required']" >
+            {{'error1'|translate}}
+            
           </mat-error>
-          <mat-error *ngIf="loginForm.get('username')?.touched && !loginForm.get('username')?.errors?.['required'] && loginForm.get('username')?.errors?.['minlength']">
-            Username must be at least 3 characters
+          <mat-error *ngIf="loginForm.get('username')?.touched && !loginForm.get('username')?.errors?.['required'] && loginForm.get('username')?.errors?.['minlength']" >
+            {{'error2'|translate}}
+            
           </mat-error>
-          <mat-error *ngIf="loginForm.get('username')?.touched && !loginForm.get('username')?.errors?.['required'] && !loginForm.get('username')?.errors?.['minlength'] && loginForm.get('username')?.errors?.['maxlength']">
-            Username must be at most 50 characters
+          <mat-error *ngIf="loginForm.get('username')?.touched && !loginForm.get('username')?.errors?.['required'] && !loginForm.get('username')?.errors?.['minlength'] && loginForm.get('username')?.errors?.['maxlength']" >
+            {{'error3'|translate}}
+            
           </mat-error>
          
         </mat-form-field>
@@ -30,32 +34,35 @@
         
   
          <mat-form-field appearance="outline">
-          <mat-label>Password</mat-label>
+          <mat-label >{{'password'|translate}}</mat-label>
           <input matInput [type]="hide ? 'password' : 'text'" id="password" formControlName="password">
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
-          <mat-error *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']">
-            Password is required
+          <mat-error *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']" >
+            {{'error15'|translate}}
+          
           </mat-error>
-          <mat-error *ngIf="loginForm.get('password')?.touched && !loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.errors?.['minlength']">
-            Password must be at least 6 characters
+          <mat-error *ngIf="loginForm.get('password')?.touched && !loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.errors?.['minlength']" >
+            {{'error16'|translate}}
+            
           </mat-error>
-          <mat-error *ngIf="loginForm.get('password')?.touched && !loginForm.get('password')?.errors?.['required'] && !loginForm.get('password')?.errors?.['minlength'] && loginForm.get('password')?.errors?.['maxlength']">
-            Password must be at most 15 characters
+          <mat-error *ngIf="loginForm.get('password')?.touched && !loginForm.get('password')?.errors?.['required'] && !loginForm.get('password')?.errors?.['minlength'] && loginForm.get('password')?.errors?.['maxlength']" >
+            {{'error17'|translate}}
+            
           </mat-error>
-          <mat-error *ngIf="loginForm.get('password')?.touched && !loginForm.get('password')?.errors?.['required'] && !loginForm.get('password')?.errors?.['minlength'] && !loginForm.get('password')?.errors?.['maxlength'] && loginForm.get('password')?.errors?.['pattern']">
-            must be at least one number one Upper and lower case letter and no symbol
+          <mat-error *ngIf="loginForm.get('password')?.touched && !loginForm.get('password')?.errors?.['required'] && !loginForm.get('password')?.errors?.['minlength'] && !loginForm.get('password')?.errors?.['maxlength'] && loginForm.get('password')?.errors?.['pattern']" >
+            {{'error18'|translate}}
           </mat-error>
         </mat-form-field>
   
        
     
        <div class="button-container"> 
-          <button mat-raised-button  type="submit" id="bt1" i18n="@@logbt">Log In</button>
-          <button mat-raised-button type="button" (click)="reset()" id="bt2" i18n="@@cancelbt">Cancel</button>
-          <button mat-raised-button type="button" id="bt3" routerLink="/signup" i18n="@@signbt">Sign Up</button>
-          <a routerLink="/forgotpassword" id="forgot">Forgot Password?</a>
+          <button mat-raised-button  type="submit" id="bt1" >{{'login'|translate}} </button>
+          <button mat-raised-button type="button" (click)="reset()" id="bt2" >{{'cancel'|translate}}</button>
+          <button mat-raised-button type="button" id="bt3" routerLink="/signup" >{{'signup'|translate}}</button>
+          <a routerLink="/forgotpassword" id="forgot" >{{'forgotPassword'|translate}}</a>
         </div>
       </form>
     </mat-card-content>

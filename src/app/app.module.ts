@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -43,6 +43,16 @@ import { DialogboxdeleteComponent } from './components/dialogboxdelete/dialogbox
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ToastrModule } from 'ngx-toastr';
 import { WebsocketService } from './service/postservice/websocket.service';
+import { registerLocaleData } from '@angular/common';
+import localeEn from '@angular/common/locales/en';
+import localeSi from '@angular/common/locales/si';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { HttpLoaderFactory } from './translate-loader';
+import { LanguageSwitcherComponentComponent } from './components/language-switcher-component/language-switcher-component.component';
+
+registerLocaleData(localeEn, 'en');
+registerLocaleData(localeSi, 'si');
 
 
 
@@ -61,6 +71,7 @@ import { WebsocketService } from './service/postservice/websocket.service';
     UpdatepostComponent,
     DialogboxComponent,
     DialogboxdeleteComponent,
+    LanguageSwitcherComponentComponent,
     
   ],
   imports: [
@@ -97,11 +108,20 @@ import { WebsocketService } from './service/postservice/websocket.service';
       positionClass: 'toast-top-right',
       preventDuplicates: true,
     }),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
       ],
   providers: [
 
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    WebsocketService
+    WebsocketService,
+    TranslateService,
+    
   ],
   bootstrap: [AppComponent]
 })
