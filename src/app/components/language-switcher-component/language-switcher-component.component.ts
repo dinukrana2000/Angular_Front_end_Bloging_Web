@@ -12,12 +12,17 @@ export class LanguageSwitcherComponentComponent {
   constructor(private translate: TranslateService) {
     translate.addLangs(['en', 'si']);
     translate.setDefaultLang('en');
-    const browserLang = translate.getBrowserLang() || 'en';
-    translate.use(browserLang.match(/en|si/) ? browserLang : 'en');
-  }
+        const savedLang = localStorage.getItem('language');
 
-  changeLanguage(lang: string) {
-    this.translate.use(lang);
-  }
+        const browserLang = translate.getBrowserLang()||'en';
+        if (savedLang) {
+          translate.use(savedLang);
+        } else {
+          translate.use(browserLang.match(/en|si/) ? browserLang : 'en');
+        }  }
 
+        changeLanguage(lang: string) {
+          this.translate.use(lang);
+          localStorage.setItem('language', lang);
+        }
 }

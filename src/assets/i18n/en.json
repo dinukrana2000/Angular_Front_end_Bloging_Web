@@ -28,6 +28,8 @@
     "error17": "Password must be at most 15 characters",
     "error18": "Must be at least one number, one uppercase, and one lowercase letter with no symbols",
     "error19": "Confirm Password is required",
-    "error20": "Passwords do not match"
+    "error20": "Passwords do not match",
+    "like": "Like",
+    "share": "Share"
   }
   
