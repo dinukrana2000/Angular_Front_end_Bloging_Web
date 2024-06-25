@@ -108,6 +108,7 @@ registerLocaleData(localeSi, 'si');
       positionClass: 'toast-top-right',
       preventDuplicates: true,
     }),
+    // configure the TranslateModule with a loader factory that loads translation files from the assets/i18n directory.
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
