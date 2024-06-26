@@ -10,7 +10,6 @@ import { ViewComponent } from './pages/view/view.component';
 import { NewComponent } from './pages/new/new.component';
 import { ViewmyComponent } from './pages/viewmy/viewmy.component';
 import { UpdatepostComponent } from './pages/updatepost/updatepost.component';
-import { ImageDisplayComponent } from './components/image-display/image-display.component';
 import { WebcamCaptureComponent } from './components/webcam-capture/webcam-capture.component';
 
 

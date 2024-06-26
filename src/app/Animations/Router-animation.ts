@@ -11,7 +11,7 @@ export const fadeInOutAnimation = trigger('fadeInOutAnimation', [
       ], { optional: true }),
       query(':leave', [
         style({ opacity: 1 }),
-        animate('600ms ease-in-out', style({ opacity: 0 }))
+        animate('600ms ease-in-out', style({ opacity: 1 }))
       ], { optional: true })
     ])
   ])
