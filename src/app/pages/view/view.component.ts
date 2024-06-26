@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ViewComponent implements OnInit {
   blogPosts:any = [];
+  isDarkMode:boolean = false;
   
 
   constructor(private postService:PostserviceService,private toaster:ToastrService) { }
@@ -24,5 +25,9 @@ export class ViewComponent implements OnInit {
       this.blogPosts = posts;
       this.toaster.success('Posts loaded successfully');
     });
+  }
+
+  onColorModeToggle(isDarkMode: boolean) {
+    this.isDarkMode = isDarkMode;
   }
 }

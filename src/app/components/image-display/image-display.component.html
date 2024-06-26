@@ -1,0 +1,6 @@
+<div>
+    <div *ngFor="let imageDataUrl of imageDataUrls">
+      <img [src]="imageDataUrl" alt="Captured Image" />
+      <button mat-raised-button (click)="DownloadImage(imageDataUrl)">Download</button>
+    </div>
+  </div>

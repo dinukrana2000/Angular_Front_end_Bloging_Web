@@ -1,8 +1,10 @@
 
 
 <app-menubar>
-  <div  class="bg" style="background-image: linear-gradient(to right, #060996, #ad0808);"></div>
-  <mat-card *ngFor="let post of blogPosts" class="card">
+  
+  <!-- <div  class="bg" style="background-image: linear-gradient(to right, #060996, #ad0808);"></div> -->
+   <div class="bg" [ngStyle]="{'background-image': !isDarkMode ? 'linear-gradient(to right, #060996, #ad0808)' : 'linear-gradient(90deg, rgba(38,35,84,1) 0%, rgba(255,255,255,1) 49%, rgba(227,165,178,1) 100%)'}"></div>
+  <mat-card *ngFor="let post of blogPosts" class="card" [ngStyle]="{'background-color':!isDarkMode?'rgb(255, 255, 255)':'rgb(236,255,134)'}">
   
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
@@ -23,6 +25,12 @@
       </div>
     </mat-card-actions>
   </mat-card>
+  
+  <div class="footer">
+    <app-color-mode (toggleColor)="onColorModeToggle($event)"></app-color-mode>
+
+  </div>
+  
 </app-menubar>
 
   

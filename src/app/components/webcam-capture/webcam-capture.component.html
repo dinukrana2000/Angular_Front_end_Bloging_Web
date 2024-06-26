@@ -1,0 +1,14 @@
+
+<app-menubar>
+<div class="webcam-container">
+    <video #videoElement autoplay></video>
+    <button mat-raised-button (click)="captureImage()">Capture Image</button>
+    <canvas #canvasElement></canvas>
+  </div>
+<br/><br/>
+
+  <div><app-image-display  [imageDataUrls]="capturedImages">
+
+  </app-image-display>
+</div>
+</app-menubar>

@@ -50,6 +50,11 @@ import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-transla
 import { HttpClient } from '@angular/common/http';
 import { HttpLoaderFactory } from './translate-loader';
 import { LanguageSwitcherComponentComponent } from './components/language-switcher-component/language-switcher-component.component';
+import { ColorModeComponent } from './components/color-mode/color-mode.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { ImageDisplayComponent } from './components/image-display/image-display.component';
+import { WebcamCaptureComponent } from './components/webcam-capture/webcam-capture.component';
+
 
 registerLocaleData(localeEn, 'en');
 registerLocaleData(localeSi, 'si');
@@ -72,6 +77,9 @@ registerLocaleData(localeSi, 'si');
     DialogboxComponent,
     DialogboxdeleteComponent,
     LanguageSwitcherComponentComponent,
+    ColorModeComponent,
+    ImageDisplayComponent,
+    WebcamCaptureComponent,
     
   ],
   imports: [
@@ -103,6 +111,7 @@ registerLocaleData(localeSi, 'si');
     MatCheckboxModule,
     MatDialogModule,
     MatProgressSpinnerModule,
+    MatSlideToggleModule,
     ToastrModule.forRoot({
       timeOut: 2000,
       positionClass: 'toast-top-right',
