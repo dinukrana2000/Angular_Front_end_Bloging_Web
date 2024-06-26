@@ -2,4 +2,6 @@
     <img class="logo" src="../assets/images/pic.png" alt="Logo">
     <span class="header-text">Blogger</span>
 </header>
-<router-outlet></router-outlet>
+<div [@fadeInOutAnimation]="o.isActivated ? o.activatedRoute : ''">
+    <router-outlet #o="outlet"></router-outlet>
+  </div>
