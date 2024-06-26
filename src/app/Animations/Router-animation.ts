@@ -1,4 +1,3 @@
-// animations.ts
 import { trigger, transition, style, animate, query, group } from '@angular/animations';
 
 export const fadeInOutAnimation = trigger('fadeInOutAnimation', [
