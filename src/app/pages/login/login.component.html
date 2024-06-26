@@ -16,7 +16,7 @@
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <mat-form-field appearance="outline">
           <mat-label >{{'username'|translate}}</mat-label>
-          <input matInput type="text" id="username" formControlName="username">
+          <input matInput type="text" id="username" formControlName="username" [(ngModel)]="logindata.username">
           <mat-error *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.errors?.['required']" >
             {{'error1'|translate}}
             
@@ -36,7 +36,7 @@
   
          <mat-form-field appearance="outline">
           <mat-label >{{'password'|translate}}</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'" id="password" formControlName="password">
+          <input matInput [type]="hide ? 'password' : 'text'" id="password" formControlName="password"  [(ngModel)]="logindata.password">
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>

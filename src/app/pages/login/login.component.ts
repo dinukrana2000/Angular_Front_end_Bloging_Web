@@ -13,6 +13,7 @@ import { LoginData } from './login.model';
 export class LoginComponent implements OnInit {
   loginForm!:FormGroup;
   hide = true;
+  logindata :LoginData=new LoginData('','');
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router, private toastr: ToastrService) {
     
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
   
   onSubmit() {
     if (this.loginForm.valid) {
+      console.log(this.logindata);
       const logindata=new LoginData(
         this.loginForm.get('username')?.value,
         this.loginForm.get('password')?.value
@@ -54,6 +56,7 @@ export class LoginComponent implements OnInit {
   }
   reset(){
     this.loginForm.reset();
+    this.logindata=new LoginData('','');
   }
 
 }

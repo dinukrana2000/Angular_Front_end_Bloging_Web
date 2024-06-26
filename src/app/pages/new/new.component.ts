@@ -5,8 +5,9 @@ import { AuthService } from 'src/app/service/userservice/auth.service';
 import {Router} from '@angular/router';
 import { PostserviceService } from 'src/app/service/postservice/postservice.service';
 import { ToastrService } from 'ngx-toastr';
+import { PostData } from 'src/app/pages/new/new.model';
 
-@Component({
+@Component({  
   selector: 'app-new',
   templateUrl: './new.component.html',
   styleUrls: ['./new.component.css']
@@ -31,7 +32,13 @@ export class NewComponent implements OnInit{
   }
 onSubmit() {
   if (this.createPost.valid) {
-    this.postService.createpost(this.createPost.value).subscribe(
+    const postdata=new PostData(
+      this.createPost.get('username')?.value,
+      this.createPost.get('title')?.value,
+      this.createPost.get('author')?.value,
+      this.createPost.get('content')?.value,
+    )
+    this.postService.createpost(postdata).subscribe(
       {
         next:response => {
           this.toastr.success(response.message, 'Success');
