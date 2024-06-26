@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/service/userservice/auth.service';
 import {Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { LoginData } from './login.model';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +29,11 @@ export class LoginComponent implements OnInit {
   
   onSubmit() {
     if (this.loginForm.valid) {
-      this.authService.login(this.loginForm.value).subscribe(
+      const logindata=new LoginData(
+        this.loginForm.get('username')?.value,
+        this.loginForm.get('password')?.value
+      );
+      this.authService.login(logindata).subscribe(
         {next:response => {
           this.toastr.success(response.message, 'Success');
           this.router.navigate(['/view']);
