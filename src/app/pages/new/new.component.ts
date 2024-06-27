@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/service/userservice/auth.service';
 import {Router} from '@angular/router';
 import { PostserviceService } from 'src/app/service/postservice/postservice.service';
 import { ToastrService } from 'ngx-toastr';
 import { PostData } from 'src/app/pages/new/new.model';
+import { NgForm } from '@angular/forms';
+
 
 @Component({  
   selector: 'app-new',
@@ -13,9 +14,10 @@ import { PostData } from 'src/app/pages/new/new.model';
   styleUrls: ['./new.component.css']
 })
 export class NewComponent implements OnInit{
-  createPost!: FormGroup;
 
-  constructor(private fb:FormBuilder,
+  postdata: PostData = new PostData(localStorage.getItem('username')||'','','','');
+
+  constructor(
     private authService: AuthService,
     private router: Router,
    private toastr: ToastrService,
@@ -23,22 +25,12 @@ export class NewComponent implements OnInit{
    ) { }
 
   ngOnInit() {
-    this.createPost = this.fb.group({
-      username: [localStorage.getItem('username'), [Validators.required]],
-      title: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
-      author: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(50)]],
-      content: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(200)]],
-    });
+
   }
-onSubmit() {
-  if (this.createPost.valid) {
-    const postdata=new PostData(
-      this.createPost.get('username')?.value,
-      this.createPost.get('title')?.value,
-      this.createPost.get('author')?.value,
-      this.createPost.get('content')?.value,
-    )
-    this.postService.createpost(postdata).subscribe(
+onSubmit(form: NgForm) {
+  if (form.valid) {
+    
+    this.postService.createpost(this.postdata).subscribe(
       {
         next:response => {
           this.toastr.success(response.message, 'Success');
@@ -53,8 +45,8 @@ onSubmit() {
   }
 }
 
-  reset(){
-    this.createPost.reset();
+  reset(form:NgForm){
+    form.resetForm();
 
   }
 }

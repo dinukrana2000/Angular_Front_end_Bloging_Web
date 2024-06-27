@@ -54,6 +54,7 @@ import { ColorModeComponent } from './components/color-mode/color-mode.component
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ImageDisplayComponent } from './components/image-display/image-display.component';
 import { WebcamCaptureComponent } from './components/webcam-capture/webcam-capture.component';
+import { FormsModule } from '@angular/forms';
 
 
 registerLocaleData(localeEn, 'en');
@@ -109,6 +110,7 @@ registerLocaleData(localeSi, 'si');
     MatNativeDateModule,
     MatRadioModule,
     MatCheckboxModule,
+    FormsModule,
     MatDialogModule,
     MatProgressSpinnerModule,
     MatSlideToggleModule,
