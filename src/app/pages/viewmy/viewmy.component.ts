@@ -25,7 +25,7 @@ export class ViewmyComponent implements OnInit{
     forkJoin({
       posts: this.postService.getMyPosts().pipe(
         catchError(Response => {
-          this.toastr.error('Failed to load My posts(fork join)');
+          this.toastr.error('Faileds to load My posts(fork join)');
           this.toastr.error(Response.error.error + ''+':'+ Response.error.message);
           return of([]); 
         })
