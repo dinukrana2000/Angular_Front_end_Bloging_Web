@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Client, Message } from '@stomp/stompjs';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WebsocketService {
   private stompClient: Client;
-  
+  private socketUrl=environment.socketUrl;
 
   constructor() {
     this.stompClient = new Client();
@@ -14,7 +15,7 @@ export class WebsocketService {
 //configure and activate the WebSocket connection using the STOMP client instance.
   initializeWebSocketConnection(): void {
     this.stompClient.configure({
-      brokerURL: 'ws://localhost:8080/web-socket',
+      brokerURL: `${this.socketUrl}/web-socket`,
       reconnectDelay: 5000,
       heartbeatIncoming: 4000,
       heartbeatOutgoing: 4000,
